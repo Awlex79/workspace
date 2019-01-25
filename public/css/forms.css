@@ -1,4 +1,8 @@
-
+.product-form {
+    display: block;
+    width: 40%;
+    margin: auto
+}
 
 .form-control {
     margin: 1rem 0;
@@ -7,7 +11,7 @@
 .form-control label,
 .form-control input {
     display: block;
-    width: 30%;
+    width: 100%;
     margin-bottom: 0.25rem;
 }
 
