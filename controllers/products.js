@@ -1,12 +1,12 @@
 const products = [];
 
+//const rootDir = require ('../util/path');
+
 exports.getAddProduct = (req, res, next) => {
     res.render('add-product', { 
         pageTitle: 'Add Product', 
         path: '/admin/add-product',
-        activeAddProduct: true, 
-        formsCSS: true,
-        productCSS: true
+        
      });
 };
 
@@ -20,9 +20,6 @@ exports.getProducts = (req, res, next) => {
         prods: products, 
         pageTitle: 'Shop', 
         path: '/', 
-        //hasProducts: products.length > 0,
-        //activeShop: true,
-        //productCSS: true
-       
+            
     })
 }
