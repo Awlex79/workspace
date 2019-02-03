@@ -1,4 +1,4 @@
-const products = [];
+const Product = require('../models/product');
 
 //const rootDir = require ('../util/path');
 
@@ -11,11 +11,17 @@ exports.getAddProduct = (req, res, next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-    products.push({ title: req.body.title });
+    /* in req.body.title 'title' reffered to add-product.ejs - input name */
+    const product = new Product(req.body.title);
+    product.save();
+
     res.redirect('/');
 };
 
 exports.getProducts = (req, res, next) => {
+
+    const products = Product.fetchAll();
+
     res.render('shop', {
         prods: products, 
         pageTitle: 'Shop', 
