@@ -38,14 +38,21 @@ exports.getEditProduct = (req, res, next) => {
 };
 
 exports.postEditProduct = (req, res, next) => {
-    const prdId = req.body.productId;
+    const prodId = req.body.productId;
     const updatedTitle = req.body.title;
     const updatedPrice = req.body.price;
     const updatedImageUrl = req.body.imageUrl;
     const updatedDescription = req.body.description;
-    const updatedProduct = new Product(prodId, updatedTitle, updatedPrice, uodat);
+    
+    const updatedProduct = new Product(
+        prodId, 
+        updatedTitle, 
+        updatedPrice, 
+        updatedImageUrl, 
+        updatedDescription);
 
-
+    updatedProduct.save();
+    res.redirect('/admin/products');
 };
 exports.getProducts = (req, res, next) => {
     Product.fetchAll(products => {
